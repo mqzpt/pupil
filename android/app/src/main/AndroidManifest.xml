@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.translate_app">
+    package="com.example.flutter_image_to_text">
    <application
-        android:label="translate_app"
+        android:label="flutter_image_to_text"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

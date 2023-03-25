@@ -1,6 +1,6 @@
 {
-    "name": "translate_app",
-    "short_name": "translate_app",
+    "name": "flutter_image_to_text",
+    "short_name": "flutter_image_to_text",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
