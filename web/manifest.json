@@ -1,11 +1,11 @@
 {
-    "name": "flutter_image_to_text",
-    "short_name": "flutter_image_to_text",
+    "name": "pupil",
+    "short_name": "pupil",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A image to text translation app on the go!",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
