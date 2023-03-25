@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'pupil',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -87,7 +87,7 @@ class _ImageToTextState extends State<ImageToText> {
           if (_pickedImage == null)
             Container(
               height: 300,
-              color: Colors.black,
+              color: Color.fromARGB(255, 255, 14, 14),
               width: double.infinity,
             )
           else
