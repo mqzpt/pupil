@@ -36,7 +36,6 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
     return Scaffold(
       drawer: NavBar(),
       appBar: AppBar(
-          title: Text('SideBar'),
           backgroundColor: Color.fromARGB(0, 255, 255, 255),
           shadowColor: Color.fromARGB(0, 255, 255, 255),
           iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0))),
