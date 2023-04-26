@@ -65,21 +65,54 @@ class _ImageToTextState extends State<ImageToText> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Pupil")),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          pickImage(ImageSource.gallery, pickedImage);
-        },
-        child: Icon(Icons.image),
+      floatingActionButton: SizedBox(
+        width: 330.0,
+        height: 86.0,
+        child: ElevatedButton(
+          onPressed: () {
+            pickImage(ImageSource.gallery, pickedImage);
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Color.fromARGB(225, 255, 227, 185),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0),
+            ),
+          ),
+          child: Container(
+            child: Center(
+              child: Text(
+                'Pick Image',
+                style: TextStyle(
+                  fontFamily: 'Times New Roman',
+                  fontStyle: FontStyle.normal,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20.0,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
       body: SizedBox(
         height: double.infinity,
         child: Column(children: [
           if (_pickedImage == null)
-            Container(
-              height: 300,
-              color: Color.fromARGB(255, 255, 14, 14),
-              width: double.infinity,
+            Positioned(
+              child: Container(
+                margin: EdgeInsets.only(top: 30.0),
+                width: 330,
+                height: 490.0,
+                decoration: BoxDecoration(
+                  color: Color(0xE3E3E3FF),
+                  image: DecorationImage(
+                    image: AssetImage("assets/icon/icon.png"),
+                    fit: BoxFit.cover,
+                    repeat: ImageRepeat.repeat,
+                  ),
+                  borderRadius: BorderRadius.all(const Radius.circular(47.0)),
+                ),
+              ),
             )
           else
             SizedBox(
