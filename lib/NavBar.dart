@@ -24,32 +24,38 @@ class NavBar extends StatelessWidget {
               ))),
       ListTile(
         leading: Icon(Icons.favorite),
-        title: Text('favorites'),
+        title: Text('Favorites'),
         onTap: () => null,
       ),
       ListTile(
         leading: Icon(Icons.people),
-        title: Text('people'),
+        title: Text('People',
+            style: TextStyle(
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.w600,
+              fontSize: 15.0,
+              letterSpacing: -0.01 * 15.0,
+            )),
         onTap: () => null,
       ),
       ListTile(
         leading: Icon(Icons.share),
-        title: Text('share'),
+        title: Text('Share'),
         onTap: () => null,
       ),
       ListTile(
         leading: Icon(Icons.notifications),
-        title: Text('favorites'),
+        title: Text('Favorites'),
         onTap: () => null,
       ),
       ListTile(
         leading: Icon(Icons.settings),
-        title: Text('settings'),
+        title: Text('Settings'),
         onTap: () => null,
       ),
       ListTile(
         leading: Icon(Icons.description),
-        title: Text('description'),
+        title: Text('Description'),
         onTap: () => null,
       ),
     ]));
