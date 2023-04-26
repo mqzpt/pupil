@@ -43,3 +43,5 @@ flutter:
   uses-material-design: true
   assets: 
   - assets/icon/icon.png
+
+main: lib/titlepage.dart

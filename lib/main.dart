@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'titlepage.dart';
 import 'package:flutter/material.dart';
 import 'package:pupil/utils/utils.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
