@@ -29,13 +29,7 @@ class NavBar extends StatelessWidget {
       ),
       ListTile(
         leading: Icon(Icons.people),
-        title: Text('People',
-            style: TextStyle(
-              fontStyle: FontStyle.normal,
-              fontWeight: FontWeight.w600,
-              fontSize: 15.0,
-              letterSpacing: -0.01 * 15.0,
-            )),
+        title: Text('People'),
         onTap: () => null,
       ),
       ListTile(

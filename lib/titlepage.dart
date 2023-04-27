@@ -43,12 +43,54 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           SizedBox(
+            width: 270,
+            height: 400,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Image to Text Translator',
+                    style: TextStyle(
+                      fontSize: 40.0,
+                      fontFamily: 'Garamond',
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'AI Camera App',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontFamily: 'Roboto',
+                      fontStyle: FontStyle.normal,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  SizedBox(height: 30.0),
+                  Text(
+                    "Instantly translate text from images with our AI-powered app. Perfect for translating foreign notes, transcribing documents, and capturing text from signs and monuments.",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      height: 1.5,
+                      fontFamily: 'Roboto',
+                      fontStyle: FontStyle.normal,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          SizedBox(
             width: 330.0,
             height: 86.0,
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(225, 255, 227, 185),
+                primary: Color.fromARGB(224, 104, 164, 255),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25.0),
                 ),
@@ -78,10 +120,10 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
               ),
             ),
           ),
-          SizedBox(height: 16.0), // Add some spacing between the buttons
+          SizedBox(height: 30.0), // Add some spacing between the buttons
           SizedBox(
             width: 330.0,
-            height: 86.0,
+            height: 83.0,
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
