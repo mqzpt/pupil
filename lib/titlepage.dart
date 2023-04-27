@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:pupil/NavBar.dart';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -100,6 +99,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
+                      // Will update; use 'const' literals as arguments to constructors of '@immutable' classes.
                       'Start Translating',
                       textAlign: TextAlign.right,
                       style: TextStyle(
