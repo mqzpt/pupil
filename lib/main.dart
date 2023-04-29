@@ -7,7 +7,10 @@ import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart
 import 'package:image_picker/image_picker.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -113,7 +116,7 @@ class _ImageToTextState extends State<ImageToText> {
             ),
             if (_pickedImage == null)
               Container(
-                margin: EdgeInsets.only(top: 30),
+                margin: EdgeInsets.only(top: 60),
                 width: 330,
                 height: 490.0,
                 decoration: BoxDecoration(
@@ -122,16 +125,33 @@ class _ImageToTextState extends State<ImageToText> {
                 ),
               )
             else
-              SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: Image.file(
-                  _pickedImage!,
-                  fit: BoxFit.fill,
+              Container(
+                margin: EdgeInsets.only(top: 60),
+                height: 490,
+                width: 330,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(226, 0, 0, 0),
+                  borderRadius: BorderRadius.all(const Radius.circular(47.0)),
+                ),
+                child: Container(
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(
+                        parent: AlwaysScrollableScrollPhysics()),
+                    padding: EdgeInsets.all(30),
+                    child: Text(
+                      outputText,
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontFamily: 'Roboto',
+                          fontStyle: FontStyle.normal,
+                          color: Colors.white),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
               ),
             SizedBox(
-              height: 30.0,
+              height: 80.0,
             ),
             SizedBox(
               width: 86.0,
@@ -159,16 +179,6 @@ class _ImageToTextState extends State<ImageToText> {
             ),
           ],
         ),
-      ),
-      body: Column(
-        children: [
-          Expanded(child: Container()),
-          Text(
-            outputText,
-            style: TextStyle(fontSize: 24),
-          ),
-          Expanded(child: Container()),
-        ],
       ),
     );
   }

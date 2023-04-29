@@ -51,7 +51,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                 children: [
                   SizedBox(
                     width: 270,
-                    height: 400,
+                    height: 480,
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Column(
@@ -63,24 +63,25 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                               fontSize: 40.0,
                               fontFamily: 'Garamond',
                               fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           Text(
                             'AI Camera App',
                             style: TextStyle(
                               fontSize: 20.0,
+                              height: 2,
                               fontFamily: 'Roboto',
                               fontStyle: FontStyle.normal,
                               color: Colors.grey,
                             ),
                           ),
-                          SizedBox(height: 30.0),
+                          SizedBox(height: 50.0),
                           Text(
-                            "Instantly translate text from images with our AI-powered app. Perfect for translating foreign notes and capturing text from signs and monuments.",
+                            "Instantly translate text from images with our AI-powered app. Perfect for translating foreign notes and text from signs and monuments.",
                             style: TextStyle(
                               fontSize: 18.0,
-                              height: 1.5,
+                              height: 2,
                               fontFamily: 'Roboto',
                               fontStyle: FontStyle.normal,
                               color: Colors.grey,
@@ -92,7 +93,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                   ),
                   Container(
                     width: 350,
-                    padding: EdgeInsets.only(bottom: 30),
+                    padding: EdgeInsets.only(bottom: 60),
                     child: Align(
                       alignment: Alignment.center,
                       child: Column(

@@ -44,5 +44,9 @@ flutter:
   assets: 
   - assets/icon/icon.png
   - assets/avatar/zakuro.jpg
+  fonts:
+    - family: Garamond
+      fonts:
+        - asset: fonts/garamond.ttf
 
 main: lib/titlepage.dart
