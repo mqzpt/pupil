@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'package:pupil/main.dart';
 import 'package:pupil/NavBar.dart';
 import 'package:flutter/material.dart';
+import 'package:pupil/main.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +44,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
-            padding: EdgeInsets.only(left: 25),
+            padding: EdgeInsets.only(left: 25, top: 85),
             child: Align(
               alignment: Alignment.center,
               child: Column(
@@ -99,7 +101,13 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                             width: 270.0,
                             height: 86.0,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ImageToText()),
+                                );
+                              },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(224, 104, 164, 255),
                                 shape: RoundedRectangleBorder(

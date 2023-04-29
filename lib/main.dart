@@ -1,5 +1,6 @@
 import 'dart:io';
 // import 'titlepage.dart';
+import 'titlepage.dart';
 import 'package:flutter/material.dart';
 import 'package:pupil/utils/utils.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
@@ -65,71 +66,109 @@ class _ImageToTextState extends State<ImageToText> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: SizedBox(
-        width: 330.0,
-        height: 86.0,
-        child: ElevatedButton(
-          onPressed: () {
-            pickImage(ImageSource.gallery, pickedImage);
-          },
-          style: ElevatedButton.styleFrom(
-            primary: Color.fromARGB(225, 255, 227, 185),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25.0),
-            ),
-          ),
-          child: Container(
-            child: Center(
-              child: Text(
-                'Pick Image',
-                style: TextStyle(
-                  fontFamily: 'Times New Roman',
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 20.0,
-                  color: Color.fromARGB(255, 255, 255, 255),
+      floatingActionButton: Container(
+        padding: EdgeInsets.only(top: 30, left: 33),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: SizedBox(
+                width: 60.0,
+                height: 40.0,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            ButtonNavigation(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          return SlideTransition(
+                            textDirection: TextDirection.rtl,
+                            position: Tween<Offset>(
+                              begin: const Offset(1.0, 0.0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            transformHitTests: true,
+                            child: child,
+                          );
+                        },
+                      ),
+                    );
+                  },
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(224, 104, 164, 255),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100.0),
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
-        ),
-      ),
-      body: SizedBox(
-        height: double.infinity,
-        child: Column(children: [
-          if (_pickedImage == null)
-            Positioned(
-              child: Container(
-                margin: EdgeInsets.only(top: 30.0),
+            if (_pickedImage == null)
+              Container(
+                margin: EdgeInsets.only(top: 30),
                 width: 330,
                 height: 490.0,
                 decoration: BoxDecoration(
-                  color: Color(0xE3E3E3FF),
-                  image: DecorationImage(
-                    image: AssetImage("assets/icon/icon.png"),
-                    fit: BoxFit.cover,
-                    repeat: ImageRepeat.repeat,
-                  ),
+                  color: Color.fromARGB(226, 0, 0, 0),
                   borderRadius: BorderRadius.all(const Radius.circular(47.0)),
                 ),
+              )
+            else
+              SizedBox(
+                height: 300,
+                width: double.infinity,
+                child: Image.file(
+                  _pickedImage!,
+                  fit: BoxFit.fill,
+                ),
               ),
-            )
-          else
             SizedBox(
-              height: 300,
-              width: double.infinity,
-              child: Image.file(
-                _pickedImage!,
-                fit: BoxFit.fill,
+              height: 30.0,
+            ),
+            SizedBox(
+              width: 86.0,
+              height: 86.0,
+              child: ElevatedButton(
+                onPressed: () {
+                  pickImage(ImageSource.gallery, pickedImage);
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(223, 255, 188, 124),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100.0),
+                  ),
+                ),
+                child: Container(
+                  child: Center(
+                    child: Icon(
+                      Icons.image,
+                      size: 40.0,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                ),
               ),
             ),
+          ],
+        ),
+      ),
+      body: Column(
+        children: [
           Expanded(child: Container()),
           Text(
             outputText,
             style: TextStyle(fontSize: 24),
           ),
           Expanded(child: Container()),
-        ]),
+        ],
       ),
     );
   }

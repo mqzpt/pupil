@@ -6,8 +6,8 @@ class NavBar extends StatelessWidget {
     return Drawer(
         child: ListView(padding: EdgeInsets.zero, children: [
       UserAccountsDrawerHeader(
-          accountName: Text('Oflutter.com'),
-          accountEmail: Text('example@gmail.com'),
+          accountName: Text('JP Mak'),
+          accountEmail: Text('j29mak@uwaterloo.ca'),
           currentAccountPicture: CircleAvatar(
               child: ClipOval(
                   child: Image.asset(
@@ -23,23 +23,8 @@ class NavBar extends StatelessWidget {
                 fit: BoxFit.cover,
               ))),
       ListTile(
-        leading: Icon(Icons.favorite),
-        title: Text('Favorites'),
-        onTap: () => null,
-      ),
-      ListTile(
-        leading: Icon(Icons.people),
-        title: Text('People'),
-        onTap: () => null,
-      ),
-      ListTile(
         leading: Icon(Icons.share),
         title: Text('Share'),
-        onTap: () => null,
-      ),
-      ListTile(
-        leading: Icon(Icons.notifications),
-        title: Text('Favorites'),
         onTap: () => null,
       ),
       ListTile(
@@ -48,8 +33,8 @@ class NavBar extends StatelessWidget {
         onTap: () => null,
       ),
       ListTile(
-        leading: Icon(Icons.description),
-        title: Text('Description'),
+        leading: Icon(Icons.star),
+        title: Text('Certificates'),
         onTap: () => null,
       ),
     ]));
