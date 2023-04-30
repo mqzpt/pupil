@@ -43,7 +43,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icon/icon.png
-    - assets/avatar/zakuro.jpg
+    - assets/avatar/image.jpg
   fonts:
     - family: Garamond
       fonts:
