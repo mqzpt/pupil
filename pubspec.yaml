@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  share_plus: ^6.3.4
   cupertino_icons: ^1.0.2
   google_mlkit_text_recognition: ^0.3.0
   image_picker: ^0.8.5+3
@@ -41,9 +41,9 @@ flutter_icons:
 
 flutter:
   uses-material-design: true
-  assets: 
-  - assets/icon/icon.png
-  - assets/avatar/zakuro.jpg
+  assets:
+    - assets/icon/icon.png
+    - assets/avatar/zakuro.jpg
   fonts:
     - family: Garamond
       fonts:
