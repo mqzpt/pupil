@@ -2,9 +2,8 @@ import 'dart:io';
 import 'palette.dart';
 import 'package:flutter/services.dart';
 import 'package:pupil/image_picker.dart';
-import 'package:pupil/NavBar.dart';
+import 'package:pupil/navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:pupil/image_picker.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
       */
       debugShowCheckedModeBanner: false,
       title: 'pupil',
-      home: ButtonNavigation(),
+      home: const ButtonNavigation(),
     );
   }
 }
@@ -66,7 +65,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
-            padding: EdgeInsets.only(left: 25, top: 85),
+            padding: const EdgeInsets.only(left: 25, top: 85),
             child: Align(
               alignment: Alignment.center,
               child: Column(
