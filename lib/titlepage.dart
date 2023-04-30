@@ -1,10 +1,16 @@
 import 'dart:io';
+import 'palette.dart';
+import 'package:flutter/services.dart';
 import 'package:pupil/main.dart';
 import 'package:pupil/NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:pupil/main.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(const MyApp());
 }
 
@@ -15,10 +21,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'pupil',
       theme: ThemeData(
-        primarySwatch: Colors.brown,
+        brightness: Brightness.light,
+        primarySwatch: Colors.lightBlue,
+        /* light theme settings */
       ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: PaletteIndigo.indigo,
+        /* dark theme settings */
+      ),
+      themeMode: ThemeMode.system,
+      /* ThemeMode.system to follow system theme, 
+         ThemeMode.light for light theme, 
+         ThemeMode.dark for dark theme
+      */
+      debugShowCheckedModeBanner: false,
+      title: 'pupil',
       home: ButtonNavigation(),
     );
   }
@@ -37,9 +56,12 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
     return Scaffold(
       drawer: NavBar(),
       appBar: AppBar(
-          backgroundColor: Color.fromARGB(0, 255, 255, 255),
-          shadowColor: Color.fromARGB(0, 255, 255, 255),
-          iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0))),
+        backgroundColor: Color.fromARGB(0, 255, 255, 255),
+        shadowColor: Color.fromARGB(0, 255, 255, 255),
+        iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0), size: 32),
+        toolbarHeight: 90,
+        leadingWidth: 90,
+      ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -48,10 +70,11 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
             child: Align(
               alignment: Alignment.center,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    width: 270,
-                    height: 480,
+                    width: MediaQuery.of(context).size.width * 0.65,
+                    height: MediaQuery.of(context).size.height * 0.55,
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Column(
@@ -92,25 +115,40 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                     ),
                   ),
                   Container(
-                    width: 350,
+                    width: MediaQuery.of(context).size.width * 0.8,
                     padding: EdgeInsets.only(bottom: 60),
                     child: Align(
                       alignment: Alignment.center,
                       child: Column(
                         children: [
                           SizedBox(
-                            width: 270.0,
+                            width: MediaQuery.of(context).size.width * 0.65,
                             height: 86.0,
                             child: ElevatedButton(
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ImageToText()),
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        ImageToText(),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      return SlideTransition(
+                                        textDirection: TextDirection.ltr,
+                                        position: Tween<Offset>(
+                                          begin: const Offset(1.0, 0.0),
+                                          end: Offset.zero,
+                                        ).animate(animation),
+                                        transformHitTests: true,
+                                        child: child,
+                                      );
+                                    },
+                                  ),
                                 );
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(224, 104, 164, 255),
+                                primary: Theme.of(context).colorScheme.primary,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25.0),
                                 ),
@@ -147,12 +185,12 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                               height:
                                   30.0), // Add some spacing between the buttons
                           SizedBox(
-                            width: 270.0,
+                            width: MediaQuery.of(context).size.width * 0.65,
                             height: 83.0,
                             child: ElevatedButton(
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(223, 255, 219, 152),
+                                primary: Color.fromARGB(255, 195, 154, 108),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25.0),
                                 ),
@@ -163,7 +201,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'Pick a New Language',
+                                      'Choose Language',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
                                         fontFamily: 'Times New Roman',

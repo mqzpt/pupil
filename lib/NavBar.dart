@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -25,11 +26,6 @@ class NavBar extends StatelessWidget {
       ListTile(
         leading: Icon(Icons.share),
         title: Text('Share'),
-        onTap: () => null,
-      ),
-      ListTile(
-        leading: Icon(Icons.settings),
-        title: Text('Settings'),
         onTap: () => null,
       ),
       ListTile(
