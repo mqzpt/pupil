@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:pupil/language.dart';
+import 'language.dart';
 import 'palette.dart';
 import 'package:flutter/services.dart';
 import 'package:pupil/image_picker.dart';
@@ -187,7 +189,28 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                             width: MediaQuery.of(context).size.width * 0.65,
                             height: 83.0,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        ChooseLanguage(),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      return SlideTransition(
+                                        textDirection: TextDirection.ltr,
+                                        position: Tween<Offset>(
+                                          begin: const Offset(1.0, 0.0),
+                                          end: Offset.zero,
+                                        ).animate(animation),
+                                        transformHitTests: true,
+                                        child: child,
+                                      );
+                                    },
+                                  ),
+                                );
+                              },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 195, 154, 108),
                                 shape: RoundedRectangleBorder(

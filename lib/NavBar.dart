@@ -55,7 +55,7 @@ class NavBar extends StatelessWidget {
         onTap: () => null,
       ),
       ListTile(
-        leading: const Icon(Icons.share),
+        leading: const Icon(Icons.person),
         title: const Text('Profile'),
         onTap: () => null,
       ),
