@@ -3,6 +3,7 @@ import 'palette.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
+String languageSelect = '🇰🇷';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -110,7 +111,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Container(
@@ -123,14 +124,14 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       alignment: Alignment.center,
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Text(
                               'Selected Language',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontFamily: 'Roboto',
                                 fontStyle: FontStyle.normal,
                                 fontWeight: FontWeight.w700,
@@ -140,7 +141,17 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                             ),
                           ]),
                     ),
-                    Text('🇬🇧', style: TextStyle(fontSize: 40)),
+                    Container(
+                      alignment: Alignment.center,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              languageSelect,
+                              style: const TextStyle(fontSize: 40.0),
+                            ),
+                          ]),
+                    )
                   ],
                 ))
           ],
@@ -160,7 +171,10 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                   height: 70,
                   child: OutlinedButton(
                     onPressed: () {
-                      // handle button press
+                      setState(() {
+                        languageSelect =
+                            LanguageList[index]['flag']; // handle button press
+                      });
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -182,7 +196,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                           ),
                         ),
                         Text(LanguageList[index]['flag'],
-                            style: TextStyle(fontSize: 50)),
+                            style: const TextStyle(fontSize: 50)),
                       ],
                     ),
                   ),
