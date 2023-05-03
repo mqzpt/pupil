@@ -162,6 +162,8 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
             top: 260,
           ),
           child: ListView.builder(
+            physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()),
             itemCount: LanguageList.length,
             itemBuilder: (BuildContext context, int index) {
               return Padding(
