@@ -1,10 +1,8 @@
-import 'dart:io';
 import 'package:pupil/language.dart';
-import 'language.dart';
 import 'palette.dart';
 import 'package:flutter/services.dart';
 import 'package:pupil/image_picker.dart';
-import 'package:pupil/navbar.dart';
+import 'package:pupil/nav_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,25 +20,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.lightBlue,
-        /* light theme settings */
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: PaletteIndigo.indigo,
-        /* dark theme settings */
-      ),
-      themeMode: ThemeMode.system,
-      /* ThemeMode.system to follow system theme, 
+        theme: ThemeData(
+          brightness: Brightness.light,
+          primarySwatch: Colors.lightBlue,
+          /* light theme settings */
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: PaletteIndigo.indigo,
+          /* dark theme settings */
+        ),
+        themeMode: ThemeMode.system,
+        /* ThemeMode.system to follow system theme, 
          ThemeMode.light for light theme, 
          ThemeMode.dark for dark theme
       */
-      debugShowCheckedModeBanner: false,
-      title: 'pupil',
-      home: const ButtonNavigation(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'pupil',
+        home: ButtonNavigation());
   }
 }
 
@@ -55,11 +52,12 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavBar(),
+      drawer: const NavBar(),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(0, 255, 255, 255),
-        shadowColor: Color.fromARGB(0, 255, 255, 255),
-        iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0), size: 32),
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+        shadowColor: const Color.fromARGB(0, 255, 255, 255),
+        iconTheme:
+            const IconThemeData(color: Color.fromARGB(255, 0, 0, 0), size: 32),
         toolbarHeight: 90,
         leadingWidth: 90,
       ),
@@ -80,7 +78,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                       alignment: Alignment.centerLeft,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text(
                             'Image to Text Translator',
                             style: TextStyle(
@@ -117,7 +115,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.8,
-                    padding: EdgeInsets.only(bottom: 60),
+                    padding: const EdgeInsets.only(bottom: 60),
                     child: Align(
                       alignment: Alignment.center,
                       child: Column(
@@ -149,40 +147,38 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                                 );
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Theme.of(context).colorScheme.primary,
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.primary,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25.0),
                                 ),
                               ),
-                              child: Container(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      // Will update; use 'const' literals as arguments to constructors of '@immutable' classes.
-                                      'Start Translating',
-                                      textAlign: TextAlign.right,
-                                      style: TextStyle(
-                                        fontFamily: 'Times New Roman',
-                                        fontStyle: FontStyle.normal,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 20.0,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                      ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text(
+                                    // Will update; use 'const' literals as arguments to constructors of '@immutable' classes.
+                                    'Start Translating',
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      fontFamily: 'Times New Roman',
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 20.0,
+                                      color: Color.fromARGB(255, 255, 255, 255),
                                     ),
-                                    Icon(
-                                      Icons.arrow_forward_ios,
-                                      color: Colors.white,
-                                      size: 20.0,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.white,
+                                    size: 20.0,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                               height:
                                   30.0), // Add some spacing between the buttons
                           SizedBox(
@@ -195,7 +191,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                                   PageRouteBuilder(
                                     pageBuilder: (context, animation,
                                             secondaryAnimation) =>
-                                        ChooseLanguage(),
+                                        const ChooseLanguage(),
                                     transitionsBuilder: (context, animation,
                                         secondaryAnimation, child) {
                                       return SlideTransition(
@@ -212,35 +208,33 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                                 );
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 195, 154, 108),
+                                backgroundColor:
+                                    const Color.fromARGB(255, 195, 154, 108),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25.0),
                                 ),
                               ),
-                              child: Container(
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Choose Language',
-                                      textAlign: TextAlign.right,
-                                      style: TextStyle(
-                                        fontFamily: 'Times New Roman',
-                                        fontStyle: FontStyle.normal,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 20.0,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                      ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text(
+                                    'Choose Language',
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                      fontFamily: 'Times New Roman',
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 20.0,
+                                      color: Color.fromARGB(255, 255, 255, 255),
                                     ),
-                                    Icon(
-                                      Icons.arrow_forward_ios,
-                                      color: Colors.white,
-                                      size: 20.0,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.white,
+                                    size: 20.0,
+                                  ),
+                                ],
                               ),
                               // End of second button
                             ),

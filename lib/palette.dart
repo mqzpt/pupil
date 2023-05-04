@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class PaletteIndigo {
-  static MaterialColor indigo = MaterialColor(
+  static MaterialColor indigo = const MaterialColor(
     0xFF3F51B5,
     <int, Color>{
       50: Color(0xFFE8EAF6),

@@ -1,5 +1,4 @@
 import 'dart:io';
-// import 'titlepage.dart';
 import 'main.dart';
 import 'palette.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +39,7 @@ class MyApp extends StatelessWidget {
          ThemeMode.dark for dark theme
       */
       debugShowCheckedModeBanner: false,
-      home: ImageToText(),
+      home: const ImageToText(),
     );
   }
 }
@@ -86,7 +85,7 @@ class _ImageToTextState extends State<ImageToText> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: Container(
-        padding: EdgeInsets.only(top: 75, left: 33),
+        padding: const EdgeInsets.only(top: 75, left: 33),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -101,7 +100,7 @@ class _ImageToTextState extends State<ImageToText> {
                       context,
                       PageRouteBuilder(
                         pageBuilder: (context, animation, secondaryAnimation) =>
-                            ButtonNavigation(),
+                            const ButtonNavigation(),
                         transitionsBuilder:
                             (context, animation, secondaryAnimation, child) {
                           return SlideTransition(
@@ -117,15 +116,15 @@ class _ImageToTextState extends State<ImageToText> {
                       ),
                     );
                   },
-                  child: Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  ),
                   style: ElevatedButton.styleFrom(
-                    primary: Theme.of(context).colorScheme.primary,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100.0),
                     ),
+                  ),
+                  child: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -137,9 +136,9 @@ class _ImageToTextState extends State<ImageToText> {
                 ),
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.6,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(226, 0, 0, 0),
-                  borderRadius: BorderRadius.all(const Radius.circular(47.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(47.0)),
                 ),
               )
             else
@@ -149,24 +148,22 @@ class _ImageToTextState extends State<ImageToText> {
                 ),
                 height: MediaQuery.of(context).size.height * 0.6,
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(226, 0, 0, 0),
-                  borderRadius: BorderRadius.all(const Radius.circular(47.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(47.0)),
                 ),
-                child: Container(
-                  child: SingleChildScrollView(
-                    physics: BouncingScrollPhysics(
-                        parent: AlwaysScrollableScrollPhysics()),
-                    padding: EdgeInsets.all(30),
-                    child: Text(
-                      outputText,
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontFamily: 'Roboto',
-                          fontStyle: FontStyle.normal,
-                          color: Colors.white),
-                      textAlign: TextAlign.start,
-                    ),
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(
+                      parent: AlwaysScrollableScrollPhysics()),
+                  padding: const EdgeInsets.all(30),
+                  child: Text(
+                    outputText,
+                    style: const TextStyle(
+                        fontSize: 24,
+                        fontFamily: 'Roboto',
+                        fontStyle: FontStyle.normal,
+                        color: Colors.white),
+                    textAlign: TextAlign.start,
                   ),
                 ),
               ),
@@ -185,18 +182,16 @@ class _ImageToTextState extends State<ImageToText> {
                     pickImage(ImageSource.gallery, pickedImage);
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 195, 154, 108),
+                    backgroundColor: const Color.fromARGB(255, 195, 154, 108),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100.0),
                     ),
                   ),
-                  child: Container(
-                    child: Center(
-                      child: Icon(
-                        Icons.image,
-                        size: 40.0,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
+                  child: const Center(
+                    child: Icon(
+                      Icons.image,
+                      size: 40.0,
+                      color: Color.fromARGB(255, 255, 255, 255),
                     ),
                   ),
                 ),
