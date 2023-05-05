@@ -55,14 +55,14 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
     {'language': 'French', 'flag': '🇫🇷'},
     {'language': 'Spanish', 'flag': '🇪🇸'},
     {'language': 'Korean', 'flag': '🇰🇷'},
-    {'language': 'Cantonese', 'flag': '🇭🇰'},
-    {'language': 'Arabic', 'flag': '🇸🇦'},
-    {'language': 'Lithuanian', 'flag': '🇱🇹'},
-    {'language': 'Russian', 'flag': '🇷🇺'},
     {'language': 'Japanese', 'flag': '🇯🇵'},
     {'language': 'Mandarin', 'flag': '🇨🇳'},
-    {'language': 'Sinhala', 'flag': '🇱🇰'},
+    {'language': 'Cantonese', 'flag': '🇭🇰'},
+    {'language': 'Arabic', 'flag': '🇸🇦'},
+    {'language': 'Russian', 'flag': '🇷🇺'},
     {'language': 'Italian', 'flag': '🇮🇹'},
+    {'language': 'Lithuanian', 'flag': '🇱🇹'},
+    {'language': 'Sinhala', 'flag': '🇱🇰'},
   ];
 
   @override
