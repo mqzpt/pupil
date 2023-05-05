@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'main.dart';
 import 'palette.dart';
+import 'language.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pupil/utils/utils.dart';

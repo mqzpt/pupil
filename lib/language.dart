@@ -3,7 +3,8 @@ import 'palette.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
-String languageSelect = '🇰🇷';
+String flagSelect = '🇰🇷';
+String languageSelect = 'Korean';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -147,7 +148,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              languageSelect,
+                              flagSelect,
                               style: const TextStyle(fontSize: 40.0),
                             ),
                           ]),
@@ -174,8 +175,9 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                   child: OutlinedButton(
                     onPressed: () {
                       setState(() {
-                        languageSelect =
-                            LanguageList[index]['flag']; // handle button press
+                        flagSelect = LanguageList[index]['flag'];
+                        languageSelect = LanguageList[index]
+                            ['language']; // handle button press
                       });
                     },
                     style: ElevatedButton.styleFrom(

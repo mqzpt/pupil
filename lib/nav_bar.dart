@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'certificates.dart';
+import 'profile.dart';
 // import 'package:share_plus/share_plus.dart';
 
 String userName = "Matthew";
 String userEmail = "mk2athan@uwaterloo.ca";
 
-class NavBar extends StatelessWidget {
+class NavBar extends StatefulWidget {
   const NavBar({super.key});
 
-  void f1() {
-    return;
-  }
+  @override
+  State<NavBar> createState() => _NavBarState();
+}
 
+class _NavBarState extends State<NavBar> {
   void f2() {
     return;
   }
@@ -45,12 +48,38 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.star),
             title: const Text('Certificates'),
-            onTap: () => f1(),
+            onTap: () => Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    const Certificate(),
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: child,
+                  );
+                },
+              ),
+            ),
           ),
           ListTile(
             leading: const Icon(Icons.person),
             title: const Text('Profile'),
-            onTap: () => f2(),
+            onTap: () => Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    const Profile(),
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: child,
+                  );
+                },
+              ),
+            ),
           ),
         ],
       ),

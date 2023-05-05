@@ -15,6 +15,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_mlkit_text_recognition: ^0.3.0
   image_picker: ^0.8.5+3
+  intl_phone_number_input: ^0.7.3+1
+  dropdown_textfield: ^1.0.8
 
 dev_dependencies:
   flutter_test:

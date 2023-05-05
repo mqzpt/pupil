@@ -130,7 +130,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                                   PageRouteBuilder(
                                     pageBuilder: (context, animation,
                                             secondaryAnimation) =>
-                                        ImageToText(),
+                                        const ImageToText(),
                                     transitionsBuilder: (context, animation,
                                         secondaryAnimation, child) {
                                       return SlideTransition(
