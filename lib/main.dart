@@ -100,7 +100,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                           ),
                           SizedBox(height: 50.0),
                           Text(
-                            "Instantly translate text from images with our AI-powered app. Perfect for translating foreign notes and text from signs and monuments.",
+                            "Instantly translate text from images with our AI-powered app. Perfect for learning, discovery, and navigation.",
                             style: TextStyle(
                               fontSize: 18.0,
                               height: 2,
