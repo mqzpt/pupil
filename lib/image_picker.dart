@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:pupil/utils/utils.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:googleapis/translate/v3.dart'
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
