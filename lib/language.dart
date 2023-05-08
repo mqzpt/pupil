@@ -136,9 +136,9 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Text(
-                              'Selected Language',
+                              'Translated Language',
                               style: TextStyle(
-                                fontFamily: 'Roboto',
+                                fontFamily: 'Garamond',
                                 fontStyle: FontStyle.normal,
                                 fontWeight: FontWeight.w700,
                                 fontSize: 17.0,
@@ -179,26 +179,6 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                   height: 70,
                   child: OutlinedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  const ButtonNavigation(),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
-                            return SlideTransition(
-                              textDirection: ui.TextDirection.rtl,
-                              position: Tween<Offset>(
-                                begin: const Offset(1.0, 0.0),
-                                end: Offset.zero,
-                              ).animate(animation),
-                              transformHitTests: true,
-                              child: child,
-                            );
-                          },
-                        ),
-                      );
                       setState(() {
                         flagSelect = languageList[index]['flag'];
                         languageSelect = languageList[index]['language'];
@@ -218,7 +198,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                         Text(
                           languageList[index]['language'],
                           style: const TextStyle(
-                            fontFamily: 'Roboto',
+                            fontFamily: 'Garamond',
                             fontStyle: FontStyle.normal,
                             fontWeight: FontWeight.w700,
                             fontSize: 20.0,

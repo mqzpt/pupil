@@ -163,9 +163,8 @@ class _ProfileState extends State<Profile> {
                       final selectedValue = value as DropDownValueModel;
                       model = selectedValue.name;
                     },
-                    textFieldDecoration: const InputDecoration(
-                        hintText:
-                            'What language category do you translate text from?'),
+                    textFieldDecoration:
+                        const InputDecoration(hintText: 'Image location?'),
                   ),
                   TextField(
                       controller: _controller4,

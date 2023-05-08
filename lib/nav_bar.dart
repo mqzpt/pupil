@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'certificates.dart';
 import 'profile.dart';
 import 'language.dart';
 // import 'package:share_plus/share_plus.dart';
@@ -40,24 +39,6 @@ class _NavBarState extends State<NavBar> {
               image: DecorationImage(
                 image: AssetImage('assets/icon/icon.png'),
                 fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.star),
-            title: const Text('Certificates'),
-            onTap: () => Navigator.push(
-              context,
-              PageRouteBuilder(
-                pageBuilder: (context, animation, secondaryAnimation) =>
-                    const Certificate(),
-                transitionsBuilder:
-                    (context, animation, secondaryAnimation, child) {
-                  return FadeTransition(
-                    opacity: animation,
-                    child: child,
-                  );
-                },
               ),
             ),
           ),
