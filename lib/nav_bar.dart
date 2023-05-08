@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'certificates.dart';
 import 'profile.dart';
+import 'language.dart';
 // import 'package:share_plus/share_plus.dart';
-
-String userName = "Matthew";
-String userEmail = "mk2athan@uwaterloo.ca";
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -25,8 +23,8 @@ class _NavBarState extends State<NavBar> {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text(userName),
-            accountEmail: Text(userEmail),
+            accountName: Text(name),
+            accountEmail: Text(email),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.asset(

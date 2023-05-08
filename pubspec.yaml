@@ -13,10 +13,14 @@ dependencies:
     sdk: flutter
   share_plus: ^6.3.4
   cupertino_icons: ^1.0.2
-  google_mlkit_text_recognition: ^0.3.0
+  google_mlkit_text_recognition: ^0.6.0
+  google_ml_kit: ^0.14.0
   image_picker: ^0.8.5+3
   intl_phone_number_input: ^0.7.3+1
   dropdown_textfield: ^1.0.8
+  translator: ^0.1.7
+  intl: ^0.18.1
+  google_mlkit_language_id: ^0.6.0
 
 dev_dependencies:
   flutter_test:
@@ -24,6 +28,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_launcher_icons: "^0.12.0"
   flutter_native_splash: ^2.2.19
+
 
 flutter_icons:
   android: "launcher_icon"

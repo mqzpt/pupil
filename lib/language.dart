@@ -1,10 +1,15 @@
 import 'main.dart';
 import 'palette.dart';
+import 'image_picker.dart';
+import 'dart:ui' as ui;
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
 String flagSelect = '🇰🇷';
 String languageSelect = 'Korean';
+String codeSelect = "ko";
+String email = 'Example@gmail.com';
+String name = 'Example Name';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -50,19 +55,19 @@ class ChooseLanguage extends StatefulWidget {
 }
 
 class _ChooseLanguageState extends State<ChooseLanguage> {
-  List<Map<String, dynamic>> LanguageList = [
-    {'language': 'English', 'flag': '🇬🇧'},
-    {'language': 'French', 'flag': '🇫🇷'},
-    {'language': 'Spanish', 'flag': '🇪🇸'},
-    {'language': 'Korean', 'flag': '🇰🇷'},
-    {'language': 'Japanese', 'flag': '🇯🇵'},
-    {'language': 'Mandarin', 'flag': '🇨🇳'},
-    {'language': 'Cantonese', 'flag': '🇭🇰'},
-    {'language': 'Arabic', 'flag': '🇸🇦'},
-    {'language': 'Russian', 'flag': '🇷🇺'},
-    {'language': 'Italian', 'flag': '🇮🇹'},
-    {'language': 'Lithuanian', 'flag': '🇱🇹'},
-    {'language': 'Sinhala', 'flag': '🇱🇰'},
+  List<Map<String, dynamic>> languageList = [
+    {'language': 'English', 'flag': '🇬🇧', 'codeWord': 'en'},
+    {'language': 'French', 'flag': '🇫🇷', 'codeWord': 'fr'},
+    {'language': 'Spanish', 'flag': '🇪🇸', 'codeWord': 'es'},
+    {'language': 'Korean', 'flag': '🇰🇷', 'codeWord': 'ko'},
+    {'language': 'Japanese', 'flag': '🇯🇵', 'codeWord': 'ja'},
+    {'language': 'Mandarin', 'flag': '🇨🇳', 'codeWord': 'zh-CN'},
+    {'language': 'Cantonese', 'flag': '🇭🇰', 'codeWord': 'zh-TW'},
+    {'language': 'Arabic', 'flag': '🇸🇦', 'codeWord': 'ar'},
+    {'language': 'Russian', 'flag': '🇷🇺', 'codeWord': 'ru'},
+    {'language': 'Italian', 'flag': '🇮🇹', 'codeWord': 'it'},
+    {'language': 'Lithuanian', 'flag': '🇱🇹', 'codeWord': 'lt'},
+    {'language': 'Sinhala', 'flag': '🇱🇰', 'codeWord': 'en'},
   ];
 
   @override
@@ -165,7 +170,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
           child: ListView.builder(
             physics: const BouncingScrollPhysics(
                 parent: AlwaysScrollableScrollPhysics()),
-            itemCount: LanguageList.length,
+            itemCount: languageList.length,
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding: const EdgeInsets.all(30),
@@ -174,10 +179,31 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                   height: 70,
                   child: OutlinedButton(
                     onPressed: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  const ButtonNavigation(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            return SlideTransition(
+                              textDirection: ui.TextDirection.rtl,
+                              position: Tween<Offset>(
+                                begin: const Offset(1.0, 0.0),
+                                end: Offset.zero,
+                              ).animate(animation),
+                              transformHitTests: true,
+                              child: child,
+                            );
+                          },
+                        ),
+                      );
                       setState(() {
-                        flagSelect = LanguageList[index]['flag'];
-                        languageSelect = LanguageList[index]
-                            ['language']; // handle button press
+                        flagSelect = languageList[index]['flag'];
+                        languageSelect = languageList[index]['language'];
+                        codeSelect = languageList[index]
+                            ['codeWord']; // handle button press
                       });
                     },
                     style: ElevatedButton.styleFrom(
@@ -190,7 +216,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          LanguageList[index]['language'],
+                          languageList[index]['language'],
                           style: const TextStyle(
                             fontFamily: 'Roboto',
                             fontStyle: FontStyle.normal,
@@ -199,7 +225,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                             color: Color.fromARGB(255, 0, 0, 0),
                           ),
                         ),
-                        Text(LanguageList[index]['flag'],
+                        Text(languageList[index]['flag'],
                             style: const TextStyle(fontSize: 50)),
                       ],
                     ),

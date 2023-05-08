@@ -1,13 +1,17 @@
 import 'dart:io';
+import 'package:google_ml_kit/google_ml_kit.dart';
 import 'main.dart';
 import 'palette.dart';
 import 'language.dart';
+import 'profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pupil/utils/utils.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:googleapis/translate/v3.dart'
+import 'package:translator/translator.dart';
+import 'package:google_mlkit_language_id/google_mlkit_language_id.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +45,7 @@ class MyApp extends StatelessWidget {
          ThemeMode.dark for dark theme
       */
       debugShowCheckedModeBanner: false,
-      home: const ImageToText(),
+      home: const Scaffold(),
     );
   }
 }
@@ -64,7 +68,11 @@ class _ImageToTextState extends State<ImageToText> {
 
     InputImage inputImage = InputImage.fromFile(file);
     //code to recognize image
-    processImageForConversion(inputImage);
+    if (_pickedImage != null) {
+      processImageForConversion(inputImage);
+    } else {
+      outputText = "Invalid";
+    }
   }
 
   processImageForConversion(inputImage) async {
@@ -72,15 +80,63 @@ class _ImageToTextState extends State<ImageToText> {
       outputText = "";
     });
 
-    final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
-    final RecognizedText recognizedText =
-        await textRecognizer.processImage(inputImage);
+    if (modelSelect == 'Korean') {
+      final textRecognizer =
+          TextRecognizer(script: TextRecognitionScript.korean);
+      final RecognizedText recognizedText =
+          await textRecognizer.processImage(inputImage);
 
-    for (TextBlock block in recognizedText.blocks) {
-      setState(() {
-        outputText += block.text + "\n";
-      });
+      for (TextBlock block in recognizedText.blocks) {
+        setState(() {
+          outputText += block.text + '\n';
+        });
+      }
+      textRecognizer.close();
+    } else if (modelSelect == 'Latin') {
+      final textRecognizer =
+          TextRecognizer(script: TextRecognitionScript.latin);
+      final RecognizedText recognizedText =
+          await textRecognizer.processImage(inputImage);
+
+      for (TextBlock block in recognizedText.blocks) {
+        setState(() {
+          outputText += block.text + '\n';
+        });
+      }
+      textRecognizer.close();
+    } else if (modelSelect == 'Japanese') {
+      final textRecognizer =
+          TextRecognizer(script: TextRecognitionScript.japanese);
+      final RecognizedText recognizedText =
+          await textRecognizer.processImage(inputImage);
+
+      for (TextBlock block in recognizedText.blocks) {
+        setState(() {
+          outputText += block.text + '\n';
+        });
+      }
+      textRecognizer.close();
+    } else if (modelSelect == 'Chinese') {
+      final textRecognizer =
+          TextRecognizer(script: TextRecognitionScript.chinese);
+      final RecognizedText recognizedText =
+          await textRecognizer.processImage(inputImage);
+
+      for (TextBlock block in recognizedText.blocks) {
+        setState(() {
+          outputText += block.text + '\n';
+        });
+      }
+      textRecognizer.close();
     }
+  }
+
+  Future<String> getData() async {
+    final displayText = await outputText.translate(
+      from: 'auto',
+      to: codeSelect,
+    );
+    return displayText.toString();
   }
 
   @override
@@ -155,19 +211,33 @@ class _ImageToTextState extends State<ImageToText> {
                   borderRadius: BorderRadius.all(Radius.circular(47.0)),
                 ),
                 child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(
-                      parent: AlwaysScrollableScrollPhysics()),
-                  padding: const EdgeInsets.all(30),
-                  child: Text(
-                    outputText,
-                    style: const TextStyle(
-                        fontSize: 24,
-                        fontFamily: 'Roboto',
-                        fontStyle: FontStyle.normal,
-                        color: Colors.white),
-                    textAlign: TextAlign.start,
-                  ),
-                ),
+                    physics: const BouncingScrollPhysics(
+                        parent: AlwaysScrollableScrollPhysics()),
+                    padding: const EdgeInsets.all(30),
+                    child: FutureBuilder<String>(
+                      future: getData(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        } else if (snapshot.hasError) {
+                          return Center(
+                            child: Text('Error: ${snapshot.error}'),
+                          );
+                        } else {
+                          return Text(
+                            (snapshot.data ?? ''),
+                            style: const TextStyle(
+                                fontSize: 24,
+                                fontFamily: 'Roboto',
+                                fontStyle: FontStyle.normal,
+                                color: Colors.white),
+                            textAlign: TextAlign.start,
+                          );
+                        }
+                      },
+                    )),
               ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,
