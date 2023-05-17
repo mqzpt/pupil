@@ -61,7 +61,7 @@ flutter:
   fonts:
     - family: Times
       fonts:
-        - asset: fonts/times.ttf
+        - asset: fonts/times_new_roman.ttf
     - family: Garamond
       fonts:
         - asset: fonts/garamond.ttf
