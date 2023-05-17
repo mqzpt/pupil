@@ -53,6 +53,8 @@ flutter_native_splash:
   image_dark: assets/icon/dark_launch_icon.png
   color_dark: "#221C1E"
 
+main: lib/titlepage.dart
+
 flutter:
   uses-material-design: true
   assets:
@@ -62,8 +64,7 @@ flutter:
     - family: Times
       fonts:
         - asset: fonts/times_new_roman.ttf
+
     - family: Garamond
       fonts:
         - asset: fonts/garamond.ttf
-
-main: lib/titlepage.dart
