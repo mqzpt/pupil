@@ -80,16 +80,16 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           Text(
-                            'Image to Text Translator',
+                            'Pupil',
                             style: TextStyle(
-                              fontSize: 40.0,
-                              fontFamily: 'Garamond',
+                              fontSize: 90.0,
+                              fontFamily: 'Times',
                               fontStyle: FontStyle.normal,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                           Text(
-                            'AI Camera App',
+                            'Simply snap and understand anything!',
                             style: TextStyle(
                               fontSize: 20.0,
                               height: 2,
@@ -162,7 +162,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                                     'Start Translating',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                      fontFamily: 'Garamond',
+                                      fontFamily: 'Times',
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w700,
                                       fontSize: 22.0,
@@ -222,7 +222,7 @@ class _ButtonNavigationState extends State<ButtonNavigation> {
                                     'Choose Language',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                      fontFamily: 'Garamond',
+                                      fontFamily: 'Times',
                                       fontStyle: FontStyle.normal,
                                       fontWeight: FontWeight.w700,
                                       fontSize: 23.0,

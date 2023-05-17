@@ -29,7 +29,6 @@ dev_dependencies:
   flutter_launcher_icons: "^0.12.0"
   flutter_native_splash: ^2.2.19
 
-
 flutter_icons:
   android: "launcher_icon"
   ios: true
@@ -50,9 +49,9 @@ flutter_icons:
 
 flutter_native_splash:
   image: assets/icon/launch_icon.png
-  color: '#FFFFFF'
+  color: "#FFFFFF"
   image_dark: assets/icon/dark_launch_icon.png
-  color_dark: '#221C1E'
+  color_dark: "#221C1E"
 
 flutter:
   uses-material-design: true
@@ -60,6 +59,9 @@ flutter:
     - assets/icon/icon.png
     - assets/avatar/image.jpg
   fonts:
+    - family: Times
+      fonts:
+        - asset: fonts/times.ttf
     - family: Garamond
       fonts:
         - asset: fonts/garamond.ttf

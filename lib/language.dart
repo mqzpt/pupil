@@ -138,7 +138,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                             Text(
                               'Translated Language',
                               style: TextStyle(
-                                fontFamily: 'Garamond',
+                                fontFamily: 'Times',
                                 fontStyle: FontStyle.normal,
                                 fontWeight: FontWeight.w700,
                                 fontSize: 17.0,
@@ -198,7 +198,7 @@ class _ChooseLanguageState extends State<ChooseLanguage> {
                         Text(
                           languageList[index]['language'],
                           style: const TextStyle(
-                            fontFamily: 'Garamond',
+                            fontFamily: 'Times',
                             fontStyle: FontStyle.normal,
                             fontWeight: FontWeight.w700,
                             fontSize: 20.0,
